@@ -53,7 +53,7 @@ The following standards guide all development and contributions to the Scizzors 
 3.  We will use snake_case, no exceptions.
 4.  Global constants will be in the `config.zig` file and will be in all caps.
     **NOTE:** Keep global constants to a minimum and accompany them with documentation always.
-5.  All DSL functions that are C macros or `comptime` Zig will be prefixed with `make_...`.
+5.  All DSL functions that are C macros or `comptime` Zig will be prefixed with `make_...` and suffixed with the construct it returns e.g _type or _fn  
 6.  We will ideally keep all of the code in Zig; some exceptions can be made for C or assembly, though unlikely.
 7.  We will leverage compiler-enabled safety features (e.g., debug and safe builds, sanitizers) during development and testing.
 8.  Every function/macro that calls another function is required to have a unit test to validate its behavior and correctness.

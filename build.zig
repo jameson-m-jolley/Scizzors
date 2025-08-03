@@ -26,6 +26,7 @@ pub fn build(b: *std.Build) void {
         .root_source_file = b.path("src/root.zig"),
         .target = target,
         .optimize = optimize,
+        .sanitize_thread = true,
     });
 
     // We will also create a module for our other entry point, 'main.zig'.
@@ -97,6 +98,7 @@ pub fn build(b: *std.Build) void {
     // but does not run it.
     const lib_unit_tests = b.addTest(.{
         .root_module = lib_mod,
+        .sanitize_thread = true,
     });
 
     const run_lib_unit_tests = b.addRunArtifact(lib_unit_tests);
