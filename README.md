@@ -31,7 +31,6 @@ While prioritizing performance, Scizzors adopts a pragmatic approach to safety. 
 - [ ] Compile-time parser generation for zero-cost runtime dissection.
 - [ ] Support for common protocols out of the box (e.g., Ethernet, IPv4, IPv6, TCP, UDP).
 - [ ] A C-compatible API for use with any language that supports C FFI.
-- [ ] Minimal dependencies and a small, highly efficient footprint.
 
 ## ⚙️ Getting Started
 
@@ -58,7 +57,14 @@ The following standards guide all development and contributions to the Scizzors 
 7.  We will leverage compiler-enabled safety features (e.g., debug and safe builds, sanitizers) during development and testing.
 8.  Every function/macro that calls another function is required to have a unit test to validate its behavior and correctness.
     **NOTE:** These tests must be declared in `test` blocks at the bottom of the same file as the code they are testing.
-
+9.  const's and vars that need to be computed then stored in a struct must fallow the naming convection and be padded with an _ so we can maintain the namespace
+// EXAMPLE:
+// blk:{
+// const _foo_ = ... ;
+// return struct {
+//          const foo = _foo_
+//      }
+//    }
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
